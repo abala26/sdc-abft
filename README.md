@@ -37,9 +37,10 @@ Artinya, karena model ini memiliki jutaan bobot paralel lainnya di layer decoder
 
 Hasilnya benar それはダメですよね di model besar. Di model tiny salah それをダメですね dan SDC memengaruhi hasil menjadi それのダメですよね
 
+coba dulu karena output tinysdc berubah apakah abft bisa mengembalikan ke output asli
 
 ```text
-coba dulu karena output tinysdc berubah apakah abft bisa mengembalikan ke output asli
+
 
 Mengaktifkan perlindungan ABFT pada model yang terinfeksi SDC...
 -> Sistem Proteksi ABFT Berhasil Dipasang pada: model.decoder.layers.0.self_attn.q_proj
@@ -72,9 +73,9 @@ Hasil Model Sehat (Baseline)     : "それをダメですね"
 Hasil Model Korup SDC (Tanpa ABFT): "それのダメですよね"
 Hasil Model Selamat (Dengan ABFT): "それをダメですね"
 ============================================================
-ApproxABFT memanfaatkan karakteristik "Partial Tolerance to Errors" (Sesuai OCP White Paper Section 6.2.1). Sifat bawaan model AI tidak membutuhkan angka desimal yang 100% presisi untuk mengenali kata suara, melainkan hanya membutuhkan nilai yang berada dalam rentang batas aman agar fungsi statistik seperti Softmax tidak mengalami distorsi. https://arxiv.org/pdf/2302.10469
-```
 
+```
+ApproxABFT memanfaatkan karakteristik "Partial Tolerance to Errors" (Sesuai OCP White Paper Section 6.2.1). Sifat bawaan model AI tidak membutuhkan angka desimal yang 100% presisi untuk mengenali kata suara, melainkan hanya membutuhkan nilai yang berada dalam rentang batas aman agar fungsi statistik seperti Softmax tidak mengalami distorsi. https://arxiv.org/pdf/2302.10469
 
 
 ```text
@@ -88,9 +89,9 @@ Healthy Model (Baseline)   : "それをダメですね"
 Corrupted SDC (No ABFT)     : "それのダメですよね"
 ATTNChecker Model (Protected): "それのダメですよね"
 ============================================================
-https://arxiv.org/pdf/2410.11720 ATTNChecker
-```
 
+```
+https://arxiv.org/pdf/2410.11720 ATTNChecker
 
 
 ```text
@@ -128,10 +129,10 @@ Hasil Model Sehat (Baseline)     : "それをダメですね"
 Hasil Model Korup SDC (Tanpa ABFT): "それのダメですよね"
 Hasil Model Selamat (Custom ABFT): "['それのダメですよね']"
 ============================================================
+
+```
 https://arxiv.org/pdf/2507.16676 Custom Algorithm-based Fault Tolerance for
 Attention Layers in Transformers
-```
-
 
 
 ```text
